@@ -37,8 +37,6 @@ function addcart (idCourse){
             addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Save the ID of the course that we buy
             localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
             location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
-        }else{
-            console.log("hello");
         }
     }
 }
@@ -53,8 +51,6 @@ function removeOne(key){
     nbObject--;
     localStorage.setItem("nbObject", nbObject);//Upgrade the value in the storage
     location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
-}else{
-    console.log("hello");
 }
 }
 function remove(key){ // delete button function
