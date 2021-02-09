@@ -25,7 +25,7 @@ function addcart (idCourse){
     }
     //Then, add it
     if (deny == false){
-        if ( confirm( "Are you sure to add this ?") ) {
+        if ( confirm( "Are you sure to add " + COURSES[idCourse-1].title + " ?") ) {
             nbObject++;
             addToCart(nbObject,idCourse-1); //Save the ID of the course that we buy
             localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
