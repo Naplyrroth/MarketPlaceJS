@@ -1,11 +1,3 @@
-/*function addcart (id){  
-if ( confirm( "Are you sure to add this ?") ) {
-    localStorage.setItem("course",id)
-console.log("addcart")
-} else {
-    console.log("hello");
-}
-}*/
 //"nbObject", in the storage, represents the number of article in our cart. So, if there no nbObject key, we create one at first.
 if (localStorage.getItem("nbObject") == null){
     localStorage.setItem("nbObject", 0);
