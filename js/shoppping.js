@@ -12,7 +12,7 @@ let content = document.getElementById("contentCart");
 for (let i=1; i<= nbObject; i++){
     let courseCart = JSON.parse(localStorage.getItem(`${i}`))
     //Display like a table in the cart
-    let courseCartTable = '<th></th>'+'<th>' +courseCart.title + '</th>' + '<th>' +courseCart.price + '</th>' + '<th>' + 1 + '</th>' + '<th></th>'
+    let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.price}   </th>  <th>  ${1}  </th>  <th><a onclick = "remove(${i})" id="btsup" class="bt-supprimer">Supprimer</a></th>`
     text = text +' '+ courseCartTable + '</tr>';
 }
 console.log(content);
@@ -45,4 +45,13 @@ function addcart (idCourse){
 function addToCart (nbObject,course){  
     localStorage.setItem(nbObject,course);
     console.log("addcart");
+}
+
+function remove(key){ // delete button function
+    localStorage.removeItem(key) // deletes the specified storage object item
+    console.log("remove key")
+    nbObject--;
+    localStorage.setItem("nbObject", nbObject);//Upgrade the value in the storage
+    location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
+    
 }

@@ -278,3 +278,15 @@ footer {
   display: block;
   margin-top: 50px;
 }
+
+.bt-supprimer{
+  background-color:rgb(138, 122, 125);
+  padding:2px;
+  text-align:center;
+  vertical-align:middle;
+  margin:3px;
+  display:inline-block;
+  border-radius:5px;
+  border:1px solid rgb(248, 248, 248);
+  cursor:pointer;
+}
