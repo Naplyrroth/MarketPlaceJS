@@ -40,20 +40,37 @@ function addcart (idCourse){
         }
     }
 }
-function addToCart (nbObject,course){  
+function addToCart (nbObject,course)
+{  
     localStorage.setItem(nbObject,course);
     console.log("addcart");
 }
 
 function removeOne(key){
-    if ( confirm( "Are you sure to delete ?") ) {
-    remove(key);
-    nbObject--;
-    localStorage.setItem("nbObject", nbObject);//Upgrade the value in the storage
-    location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
+    if ( confirm( "Are you sure to delete ?") ) 
+    {
+        remove(key);
+        let newTab = []
+        for (i = 0; i < nbObject; i++) 
+        {
+            newTab.push(localStorage.getItem(i))
+        }
+
+        localStorage.clear();
+
+        for (i = 0; i < newTab.length; i++)
+        {
+            localStorage.setItem(i + 1, newTab[i]);
+        }
+
+        nbObject--;
+        localStorage.setItem("nbObject", nbObject);//Upgrade the value in the storage
+        location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
+        
+    }
 }
-}
-function remove(key){ // delete button function
+function remove(key)
+{ // delete button function
     localStorage.removeItem(key) // deletes the specified storage object item
     console.log("remove key")
 }
