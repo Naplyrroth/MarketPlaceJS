@@ -47,13 +47,23 @@ function addToCart (nbObject,course)
 }
 
 function removeOne(key){
+    //To suppress one object :
+    //      1/Remove the object
+    //      2/Create an Array with the other object
+    //      3/Clear the storage
+    //      4/Finally put the object in the array, in the Storage
+    //With that the index for each object are now correct
     if ( confirm( "Are you sure to delete ?") ) 
     {
         remove(key);
+         
         let newTab = []
-        for (i = 0; i < nbObject; i++) 
+        for (i = 1; i <= nbObject; i++) 
         {
-            newTab.push(localStorage.getItem(i))
+            let append = localStorage.getItem(i)
+            if (append != null){
+                newTab.push(append);
+            }
         }
 
         localStorage.clear();
@@ -62,9 +72,9 @@ function removeOne(key){
         {
             localStorage.setItem(i + 1, newTab[i]);
         }
-
+        console.log(newTab);
         nbObject--;
-        localStorage.setItem("nbObject", nbObject);//Upgrade the value in the storage
+        localStorage.setItem("nbObject", nbObject);//Reload the value in the storage
         location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
         
     }
