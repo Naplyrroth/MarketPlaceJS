@@ -6,13 +6,17 @@ let nbObject = localStorage.getItem("nbObject");
 
 //Display of the article in our cart
 
-let text = '';
+let text = '<tr>';
 let content = document.getElementById("contentCart");
+
 for (let i=1; i<= nbObject; i++){
     let courseCart = JSON.parse(localStorage.getItem(`${i}`))
-    text = text +' '+ courseCart.title + '<br>';
+    //Display like a table in the cart
+    let courseCartTable = '<th></th>'+'<th>' +courseCart.title + '</th>' + '<th>' +courseCart.price + '</th>' + '<th>' + 1 + '</th>' + '<th></th>'
+    text = text +' '+ courseCartTable + '</tr>';
 }
-content.innerHTML = text;
+console.log(content);
+content.innerHTML = text ;
 
 
 function addcart (idCourse){
