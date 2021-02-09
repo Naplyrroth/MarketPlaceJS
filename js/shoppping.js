@@ -30,17 +30,19 @@ content.innerHTML = text ;
 
 function addcart (idCourse){
     let deny = false;
+    let isEmpty = COURSES[idCourse -1].stock - stockTaken[idCourse -1] <= 0; //Value to track if there is still some of this item. If there is 0 or less items, it's empty
+    console.log(isEmpty)
     //Test to not buy an other same product we have in the cart
     for (let i=1; i<=nbObject; i++){
         console.log(JSON.parse(localStorage.getItem(`${i}`)));
-        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){
+        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id || isEmpty){ //Double check
             deny = true;
             console.log("Already in your cart");
             break;
         }
     }
     //Then, add it
-    if (deny == false){
+    if (deny == false) {
         if ( confirm( "Are you sure to add " + COURSES[idCourse-1].title + " ?") ) {
             nbObject++; 
         
@@ -49,7 +51,7 @@ function addcart (idCourse){
             
             addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Save the ID of the course that we buy
             localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
-            location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
+            //location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
         }
     }
 }
