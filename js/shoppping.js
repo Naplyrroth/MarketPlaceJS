@@ -84,3 +84,9 @@ function remove(key)
     localStorage.removeItem(key) // deletes the specified storage object item
     console.log("remove key")
 }
+
+function removeall(){
+    // empty basket function
+    localStorage.clear() // empties all stored keys
+    location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
+}

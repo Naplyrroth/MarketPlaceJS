@@ -290,3 +290,12 @@ footer {
   border:1px solid rgb(248, 248, 248);
   cursor:pointer;
 }
+
+.bt-supprimer:hover {
+  color: #ffffff;
+  background-color: #305081;
+  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
+    #3b2dff 0px 0px 20px, #3b2dff 0px 0px 30px, #3b2dff 0px 0px 40px,
+    #3b2dff 0px 0px 50px, #3b2dff 0px 0px 75px;
+
+}
