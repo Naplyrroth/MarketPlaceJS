@@ -20,7 +20,7 @@ for (let i=0; i< COURSES.length; i++){
         <span class="discount">${COURSES[i].price} €</span>
       </p>
       <p>
-        Disponible: <span class="stock">${COURSES[i].stock}</span>
+        Disponible: <span class="stock">${COURSES[i].stock - stockTaken[i]}</span>
       </p>
       <a onclick= addcart(${COURSES[i].id}) class="add-to-cart" data-id="5"><i class="fa fa-cart-plus"></i>Ajouter au panier</a>
     </div>

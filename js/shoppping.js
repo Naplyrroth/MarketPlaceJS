@@ -2,7 +2,14 @@
 if (localStorage.getItem("nbObject") == null){
     localStorage.setItem("nbObject", 0);
 }
+if (localStorage.getItem("stockTaken") == null){
+    localStorage.setItem("stockTaken", JSON.stringify([0, 0, 0, 0, 0]));
+}
+
 let nbObject = localStorage.getItem("nbObject");
+let quantityObject = COURSES.stock;
+let stockTaken = JSON.parse(localStorage.getItem("stockTaken")); //Tab we'll use to keep track of the stock
+console.log (stockTaken)
 
 //Display of the article in our cart
 
@@ -35,7 +42,11 @@ function addcart (idCourse){
     //Then, add it
     if (deny == false){
         if ( confirm( "Are you sure to add " + COURSES[idCourse-1].title + " ?") ) {
-            nbObject++;
+            nbObject++; 
+        
+            stockTaken[idCourse-1]++;
+            localStorage.setItem("stockTaken", JSON.stringify(stockTaken))
+            
             addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Save the ID of the course that we buy
             localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
             location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
