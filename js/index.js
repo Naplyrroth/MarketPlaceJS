@@ -1,4 +1,7 @@
-let courseContainer = document.getElementById("courses");
+//There 2 elements with that class Name, one for the search bar and an other for the main part, we just hide the one for the search bar in a first place
+//And display it when its necessary
+let courseContainer = document.getElementsByClassName("courses__container");
+
 //Display of the different Courses that the site put in selling
 let textb = "";
 for (let i=0; i< COURSES.length; i++){
@@ -13,8 +16,8 @@ for (let i=0; i< COURSES.length; i++){
         <img src="img/rates.png">
       </figure>
       <p>
-        <span class="price">${COURSES[i].initial_price}</span>
-        <span class="discount">${COURSES[i].price}</span>
+        <span class="price">${COURSES[i].initial_price} €</span>
+        <span class="discount">${COURSES[i].price} €</span>
       </p>
       <p>
         Disponible: <span class="stock">${COURSES[i].stock}</span>
@@ -25,4 +28,6 @@ for (let i=0; i< COURSES.length; i++){
     `
 }
 
-courseContainer.innerHTML = textb;
+for (let i=0; i<courseContainer.length; i++){
+  courseContainer[i].innerHTML = textb;
+}
