@@ -35,14 +35,14 @@ function addcart (idCourse){
     //Test to not buy an other same product we have in the cart
     for (let i=1; i<=nbObject; i++){
         console.log(JSON.parse(localStorage.getItem(`${i}`)));
-        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id || isEmpty){ //Double check
+        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){ //Double check
             deny = true;
             console.log("Already in your cart");
             break;
         }
     }
     //Then, add it
-    if (deny == false) {
+    if (deny == false && isEmpty==false) {
         if ( confirm( "Are you sure to add " + COURSES[idCourse-1].title + " ?") ) {
             nbObject++; 
         
