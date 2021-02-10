@@ -29,15 +29,16 @@ content.innerHTML = text ;
 
 
 function addcart (idCourse){
-    let deny = false;
+    let deny = false; //Reste deny to false everytime we add an item
     let isEmpty = COURSES[idCourse -1].stock - stockTaken[idCourse -1] <= 0; //Value to track if there is still some of this item. If there is 0 or less items, it's empty
     console.log(isEmpty)
     //Test to not buy an other same product we have in the cart
     for (let i=1; i<=nbObject; i++){
         console.log(JSON.parse(localStorage.getItem(`${i}`)));
-        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){ //Double check
-            deny = true;
+        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){
+            deny = true; //If there is already the same product in the carte, deny the new one.
             console.log("Already in your cart");
+            confirm( "Already in your cart"); //display a message
             break;
         }
     }
@@ -46,18 +47,22 @@ function addcart (idCourse){
         if ( confirm( "Are you sure to add " + COURSES[idCourse-1].title + " ?") ) {
             nbObject++; 
         
-            stockTaken[idCourse-1]++;
+            stockTaken[idCourse-1]++; //Set the stock
             localStorage.setItem("stockTaken", JSON.stringify(stockTaken))
             
-            addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Save the ID of the course that we buy
+            addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Calml the function to add the item
             localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
-            //location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
+            location.reload() // Refresh the page, else the cart will not apply the current product that we add
         }
+    }
+    else if (isEmpty)
+    {
+        confirm( "This item is out of stock"); //Display a message if there is no more of this item
     }
 }
 function addToCart (nbObject,course)
 {  
-    localStorage.setItem(nbObject,course);
+    localStorage.setItem(nbObject,course); //Save the ID of the course that we buy
     console.log("addcart");
 }
 
