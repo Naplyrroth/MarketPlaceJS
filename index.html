@@ -47,18 +47,15 @@
   </header>
 
   <form id="search-item" class="search-form">
-    <input type="text" placeholder="Rechercher ...">
+    <input type="text" id="searchBar" onkeyup="search()" placeholder="Rechercher ...">
   </form>
 
   <div id="courses-list">
 
     <h1>Cours en ligne</h1>
-    <div class="courses__container"></div>
+    <!-- Display in index.js -->
+    <div class="courses__container" id="courses_list"></div>
     <div id="no_course" class="hidden">Aucun cours n'est disponible pour votre recherche</div>
-  </div>
-
-  <!-- Display in index.js -->
-  <div class="courses__container" id="courses">
   </div>
 
   <footer>

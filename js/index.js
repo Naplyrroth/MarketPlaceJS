@@ -1,6 +1,6 @@
 //There 2 elements with that class Name, one for the search bar and an other for the main part, we just hide the one for the search bar in a first place
 //And display it when its necessary
-let courseContainer = document.getElementById("courses");
+let courseContainer = document.getElementById("courses_list");
 
 //Display of the different Courses that the site put in selling
 let textb = "";

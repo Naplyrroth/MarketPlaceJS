@@ -5,7 +5,7 @@ function search() {
     let input = document.getElementById('searchBar');
     let filter = input.value.toUpperCase();
 
-    let listCourses = document.getElementById("courses");
+    let listCourses = document.getElementById("courses_list");
     let courseItem = listCourses.getElementsByClassName('course__item');
   
     // Loop through all list items, and hide those who don't match the search query
