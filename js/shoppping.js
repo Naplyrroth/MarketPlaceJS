@@ -113,5 +113,4 @@ function removeall(){
 
 function redirection(){
    window.alert("Thanks For Your Order")
-    document.location.href="index.html"
 }
