@@ -11,23 +11,6 @@ let quantityObject = COURSES.stock;
 let stockTaken = JSON.parse(localStorage.getItem("stockTaken")); //Tab we'll use to keep track of the stock
 console.log (stockTaken)
 
-//Display of the article in our cart
-
-let text = '<tr>';
-let content = document.getElementById("contentCart");
-let price = 0;
-
-for (let i=1; i<= nbObject; i++){
-    let courseCart = JSON.parse(localStorage.getItem(`${i}`))
-    //Display like a table in the cart:         The Title                      The price                   The quantity
-    let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.price}   </th>  <th>  ${1}  </th>  <th><a onclick = "removeOne(${i})" id="btsup" class="bt-supprimer">Supprimer</a></th>`
-    text = text +' '+ courseCartTable + '</tr>';
-    price += courseCart.price*1;
-}
-text = text + `<th></th> <th>Total </th> <th> ${price} €</th>`;
-content.innerHTML = text ;
-
-
 function addcart (idCourse){
     let deny = false; //Reste deny to false everytime we add an item
     let isEmpty = COURSES[idCourse -1].stock - stockTaken[idCourse -1] <= 0; //Value to track if there is still some of this item. If there is 0 or less items, it's empty
