@@ -105,3 +105,8 @@ function removeall(){
     localStorage.clear() // empties all stored keys
     location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
 }
+
+function redirection(){
+   window.alert("Thanks For Your Order")
+    document.location.href="index.html"
+}
