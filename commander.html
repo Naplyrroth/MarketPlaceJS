@@ -28,41 +28,46 @@
         </table>
     </header>
 </body>
+    <body>
+        <div>
+            <script>
+                function suivant(enCours, suivant, limite) {
+                    if (enCours.value.length == limite)
+                        document.code[suivant].focus();
+                }
+            </script>
 
-<body>
-    <div>
-        <script>
-            function suivant(enCours, suivant, limite) {
-                if (enCours.value.length == limite)
-                    document.code[suivant].focus();
-            }
-        </script>
+            <form name="code">
+                Cart Number : 
 
-        <form name="code">
-            <label for="uname">Numéros de Carte : </label> 
-
-            -<input type="number" maxlength="4" id="uname" name="code1" size="4" onKeyUp="suivant(this,'code2', 4)" class="validity" placeholder="Chiffre Uniquement">
-            - <input type="number" maxlength="4" id="uname" name="code2" size="4" onKeyUp="suivant(this,'code3', 4)" placeholder="Chiffre Uniquement">
-            - <input type="number" maxlength="4" id="uname" name="code3" size="4" onKeyUp="suivant(this,'code4', 4)" placeholder="Chiffre Uniquement">
-            - <input type="number" maxlength="4" id="uname" name="code4" size="4" onKeyUp="suivant(this,'code5', 4)" placeholder="Chiffre Uniquement"> </br>
-            
-            
-
-            Cryptogramme :
-            <input type="number" id="name" name="name" required minlength="3" maxlength="3" size="1"placeholder="Chiffre Uniquement"> </br>
-        </form>
-
-        
-        <a onclick = redirection();removeall() href="index.html" id="empty-cart" class="button u-full-width">Validation</a> </br>
-        <a href="index.html" class="button u-full-width">Back To Market</a> </br>
-         
+                -<input type="number" maxlength="4" id="uname" name="code1" size="4" onKeyUp="suivant(this,'code2', 4)"
+                    class="validity" placeholder="4 Chiffre Uniquement">
+                - <input type="number" maxlength="4" id="uname" name="code2" size="4" onKeyUp="suivant(this,'code3', 4)"
+                    placeholder="4 Chiffre Uniquement">
+                - <input type="number" maxlength="4" id="uname" name="code3" size="4" onKeyUp="suivant(this,'code4', 4)"
+                    placeholder="4 Chiffre Uniquement">
+                - <input type="number" maxlength="4" id="uname" name="code4" size="4" onKeyUp="suivant(this,'code5', 4)"
+                    placeholder="4 Chiffre Uniquement"> </br>
 
 
 
+                Cryptogramme :
+                <input type="number" id="name" name="code5" min="3" max="3" size="1"
+                    tabulation="suivant(this,'code6', 3)" placeholder="3 Chiffre Uniquement"> </br>
+            </form>
 
-    </div>
-    <script src="data/courses.js"></script>
-    <script src="js/shoppping.js"></script>
-</body>
+
+            <a onclick=redirection();removeall() href="index.html" id="empty-cart"
+                class="button u-full-width">Validation</a> </br>
+            <a href="index.html" class="button u-full-width">Back To Market</a> </br>
+
+
+
+
+
+        </div>
+        <script src="data/courses.js"></script>
+        <script src="js/shoppping.js"></script>
+    </body>
 
 </html>
