@@ -23,12 +23,9 @@
                     <th>SUPPRIMER</th>
                 </tr>
             </thead>
-            <tbody id="contentCart">
-                <tr id="total"></tr>
+            <tbody id="contentCart"></tbody>
         </table>
     </header>
-</body>
-    <body>
         <div>
             <script>
                 function suivant(enCours, suivant, limite) {
@@ -57,13 +54,9 @@
             </form>
 
 
-            <a onclick=redirection();removeall() href="index.html" id="empty-cart"
+            <a onclick="redirection();removeall('stockTaken')" id="empty-cart" href="index.html"
                 class="button u-full-width">Validation</a> </br>
             <a href="index.html" class="button u-full-width">Back To Market</a> </br>
-
-
-
-
 
         </div>
         <script src="data/courses.js"></script>

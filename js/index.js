@@ -32,8 +32,6 @@ for (let i=0; i< COURSES.length; i++){
     </div>
     </div>`;
 }
-//        
-
 
 //Display of the article in our cart
 let textC = '<tr>';
