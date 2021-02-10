@@ -39,21 +39,21 @@
         </script>
 
         <form name="code">
-            <label for="uname">Cryptogramme : </label> 
+            <label for="uname">Numéros de Carte : </label> 
 
-            -<input type="number" maxlength="4" id="uname" name="code1" size="8" onKeyUp="suivant(this,'code2', 4)" class="validity" placeholder="Chiffre Uniquement">
-            - <input type="number" maxlength="4" id="uname" name="code2" size="8" onKeyUp="suivant(this,'code3', 4)" placeholder="Chiffre Uniquement">
+            -<input type="number" maxlength="4" id="uname" name="code1" size="4" onKeyUp="suivant(this,'code2', 4)" class="validity" placeholder="Chiffre Uniquement">
+            - <input type="number" maxlength="4" id="uname" name="code2" size="4" onKeyUp="suivant(this,'code3', 4)" placeholder="Chiffre Uniquement">
             - <input type="number" maxlength="4" id="uname" name="code3" size="4" onKeyUp="suivant(this,'code4', 4)" placeholder="Chiffre Uniquement">
-            - <input type="number" maxlength="4" id="uname" name="code4" size="4" placeholder="Chiffre Uniquement"> </br>
+            - <input type="number" maxlength="4" id="uname" name="code4" size="4" onKeyUp="suivant(this,'code5', 4)" placeholder="Chiffre Uniquement"> </br>
             </script>
             
 
-            SÉCURITÉ :
-            <input type="text" id="name" name="name" required minlength="3" maxlength="3" size="1"> </br>
+            Cryptogramme :
+            <input type="number" id="name" name="name" required minlength="3" maxlength="3" size="1"placeholder="Chiffre Uniquement"> </br>
         </form>
 
         
-        <a onclick = redirection() id="empty-cart" class="button u-full-width">Validation</a> </br>
+        <a onclick = removeall() id="empty-cart" class="button u-full-width">Validation</a> </br>
         <a href="index.html" class="button u-full-width">Back To Market</a> </br>
          
 
