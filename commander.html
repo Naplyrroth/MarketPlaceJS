@@ -32,7 +32,7 @@
         <div>
             <script>
                 function suivant(enCours, suivant, limite) {
-                    if (enCours.value.length == limite)
+                    if (enCours.value.length >= limite)
                         document.code[suivant].focus();
                 }
             </script>
@@ -40,13 +40,13 @@
             <form name="code">
                 Cart Number : 
 
-                -<input type="number" maxlength="4" id="uname" name="code1" size="4" onKeyUp="suivant(this,'code2', 4)"
+                -<input type="number" maxlength="4" id="code1" name="code1" size="4" onKeyDown="suivant(code1,'code2', 4)"
                     class="validity" placeholder="4 Chiffre Uniquement">
-                - <input type="number" maxlength="4" id="uname" name="code2" size="4" onKeyUp="suivant(this,'code3', 4)"
+                - <input type="number" maxlength="4" id="code2" name="code2" size="4" onKeyDown="suivant(code2,'code3', 4)"
                     placeholder="4 Chiffre Uniquement">
-                - <input type="number" maxlength="4" id="uname" name="code3" size="4" onKeyUp="suivant(this,'code4', 4)"
+                - <input type="number" maxlength="4" id="code3" name="code3" size="4" onKeyDown="suivant(code3,'code4', 4)"
                     placeholder="4 Chiffre Uniquement">
-                - <input type="number" maxlength="4" id="uname" name="code4" size="4" onKeyUp="suivant(this,'code5', 4)"
+                - <input type="number" maxlength="4" id="code4" name="code4" size="4" onKeyDown="suivant(code4,'code5', 4)"
                     placeholder="4 Chiffre Uniquement"> </br>
 
 
