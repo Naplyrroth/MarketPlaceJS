@@ -35,9 +35,10 @@ function addcart (idCourse){
     //Test to not buy an other same product we have in the cart
     for (let i=1; i<=nbObject; i++){
         console.log(JSON.parse(localStorage.getItem(`${i}`)));
-        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){ //Double check
+        if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){
             deny = true;
             console.log("Already in your cart");
+            confirm( "Already in your cart");
             break;
         }
     }
@@ -51,8 +52,12 @@ function addcart (idCourse){
             
             addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Save the ID of the course that we buy
             localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
-            //location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
+            location.reload() // Used to refresh the page, else the cart will not apply the current product that we add
         }
+    }
+    else if (isEmpty)
+    {
+        confirm( "This item is out of stock");
     }
 }
 function addToCart (nbObject,course)
