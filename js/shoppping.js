@@ -13,8 +13,6 @@ console.log (stockTaken)
 
 function addcart (idCourse){
     let deny = false; //Reste deny to false everytime we add an item
-    let isEmpty = COURSES[idCourse -1].stock - stockTaken[idCourse -1] <= 0; //Value to track if there is still some of this item. If there is 0 or less items, it's empty
-    console.log(isEmpty)
     //Test to not buy an other same product we have in the cart
     for (let i=1; i<=nbObject; i++){
         console.log(JSON.parse(localStorage.getItem(`${i}`)));
@@ -26,21 +24,16 @@ function addcart (idCourse){
         }
     }
     //Then, add it
-    if (deny == false && isEmpty==false) {
-        if ( confirm( "Are you sure to add " + COURSES[idCourse-1].title + " ?") ) {
-            nbObject++; 
+    if (deny == false) {
+        alert( "You add " + COURSES[idCourse-1].title + " to your cart")
+        nbObject++; 
         
-            stockTaken[idCourse-1]++; //Set the stock
-            localStorage.setItem("stockTaken", JSON.stringify(stockTaken))
+        stockTaken[idCourse-1]++; //Set the stock
+        localStorage.setItem("stockTaken", JSON.stringify(stockTaken))
             
-            addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Calml the function to add the item
-            localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
-            location.reload() // Refresh the page, else the cart will not apply the current product that we add
-        }
-    }
-    else if (isEmpty)
-    {
-        confirm( "This item is out of stock"); //Display a message if there is no more of this item
+        addToCart(nbObject,JSON.stringify(COURSES[idCourse-1])); //Calml the function to add the item
+        localStorage.setItem("nbObject", nbObject); //Upgrade the value in the storage
+        location.reload() // Refresh the page, else the cart will not apply the current product that we add
     }
 }
 function addToCart (nbObject,course)
@@ -87,7 +80,6 @@ function remove(key)
     localStorage.removeItem(key) // deletes the specified storage object item
     console.log("remove key: "+key)
 }
-
 function removeall(key=null){
     // empty cart function
     if (key != null){
@@ -117,8 +109,4 @@ function removeall(key=null){
         remove("nbObject");
         location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
     }    
-}
-
-function redirection(){
-   window.alert("Thanks For Your Order")
 }
