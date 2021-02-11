@@ -44,21 +44,21 @@ function addToCart (nbObject,course)
 
 function removeOne(key){
     //To suppress one object :
-    //      1/Remove the object
+    //      1/Remove the object + -1 in the right cell of the stock Array
     //      2/Create an Array with the other object
     //      3/Clear the storage
     //      4/Finally put the object in the array, in the Storage
     //With that the index for each object are now correct
     if ( confirm( "Are you sure to delete ?") ) 
     {
+        //Save the current stock
         let toSave = JSON.parse(localStorage.getItem('stockTaken'));
-        let i_value = JSON.parse(localStorage.getItem(key));
+        let key_value = JSON.parse(localStorage.getItem(key));
         remove(key);
-        toSave[i_value.id-1] = toSave[i_value.id-1] - 1;
+        toSave[key_value.id-1] = toSave[key_value.id-1] - 1;
          
         let newTab = []
-        for (i = 1; i <= nbObject; i++) 
-        {
+        for (i = 1; i <= nbObject; i++) {
             let append = localStorage.getItem(i)
             if (append != null){
                 newTab.push(append);
@@ -67,8 +67,7 @@ function removeOne(key){
 
         localStorage.clear();
 
-        for (i = 0; i < newTab.length; i++)
-        {
+        for (i = 0; i < newTab.length; i++){
             localStorage.setItem(i + 1, newTab[i]);
         }
         console.log(newTab);
@@ -79,22 +78,20 @@ function removeOne(key){
         
     }
 }
-function remove(key)
-{ // delete button function
+function remove(key){ // delete button function
     localStorage.removeItem(key) // deletes the specified storage object item
     console.log("remove key: "+key)
 }
 function removeall(key=null){
     // empty cart function
     if (key != null){
-
+        
         //if we want to save a particular value in the storage
         let toSave = JSON.parse(localStorage.getItem(key));
         console.log(key);
         console.log(toSave);
         localStorage.clear() // empties all stored keys
         localStorage.setItem(key,JSON.stringify(toSave));
-        location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
     }
     else{
 
@@ -111,6 +108,6 @@ function removeall(key=null){
         localStorage.setItem("stockTaken",JSON.stringify(toSave));
         //And reset the nbObject in our cart
         remove("nbObject");
-        location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
     }    
+    location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
 }

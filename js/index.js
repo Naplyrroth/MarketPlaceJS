@@ -38,6 +38,6 @@ for (let i=1; i<= nbObject; i++){
 }
 
 textC = textC + `<th></th> <th>Total </th> <th> ${price} €</th>`;
-$('#contentCart').html(textC);
 
+$('#contentCart').html(textC);
 $('#courses_list').html(textb);
