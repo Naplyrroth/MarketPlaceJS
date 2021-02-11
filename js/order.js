@@ -6,7 +6,7 @@ function suivant(enCours, suivant, limite) {
 
     function redirection(){
     $(document).ready(function(){
-        $("#div2").atclass("hidden");
+        $("#div2").addclass("hidden");
 
     $(document).ready(function(){
         $("#div1").fadeOut();
@@ -19,4 +19,4 @@ function suivant(enCours, suivant, limite) {
     }
     removeall('stockTaken');
 }
-    )}
+    )
