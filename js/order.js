@@ -5,6 +5,10 @@ function suivant(enCours, suivant, limite) {
 }
 
 function redirection(){
+    $(document).ready(function(){
+        $("#div1").fadeOut();$("#div2").fadeOut();});
+        
+            
     window.alert("Thanks For Your Order");
     if (price >= 100){
         console.log("start the timer")

@@ -19,7 +19,8 @@ function search() {
         }
     }
     if (count == $('.course__item').length){
-        $(document).ready(function(){$("#no_course").fadeIn().removeClass("hidden");});
+        $(document).ready(function(){
+            $("#no_course").fadeIn().removeClass("hidden");});
     }else {
         $(document).ready(function(){$("#no_course").fadeOut().addClass("hidden");});
     }

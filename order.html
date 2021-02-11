@@ -11,6 +11,7 @@
 </head>
 
 <body>
+    <div id="div1"> 
     <h1> Votre Panier : </h1> </br>
     <header id="header" class="header">
         <table id="cart-table" class="u-full-width">
@@ -26,7 +27,10 @@
             <tbody id="contentCart"></tbody>
         </table>
     </header>
-        <div>
+    <input onclick="redirection()" id="empty-cart" href="index.html"
+                    class="button u-full-width" type="Submit" ></input> </br>
+</div>
+        <div id="div2">
             <form name="code">
                 Cart Number : 
 
@@ -43,17 +47,17 @@
                 <input type="number" id="name" name="code5" min="3" max="3" size="3"
                     placeholder="3 Chiffre Uniquement"> </br>
 
-                    <input onclick="redirection()" id="empty-cart" href="index.html"
-                    class="button u-full-width" type="Submit" ></input> </br>
+                    
                     
             </form>
 
             
 
 
-            <a href="index.html" class="button u-full-width">Back To Market</a> </br>
+            
 
         </div>
+        <a href="index.html" class="button u-full-width">Back To Market</a> </br>
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="data/courses.js"></script>
         <script src="js/shoppping.js"></script>
