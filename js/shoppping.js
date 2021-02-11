@@ -51,7 +51,10 @@ function removeOne(key){
     //With that the index for each object are now correct
     if ( confirm( "Are you sure to delete ?") ) 
     {
+        let toSave = JSON.parse(localStorage.getItem('stockTaken'));
+        let i_value = JSON.parse(localStorage.getItem(key));
         remove(key);
+        toSave[i_value.id-1] = toSave[i_value.id-1] - 1;
          
         let newTab = []
         for (i = 1; i <= nbObject; i++) 
@@ -69,6 +72,7 @@ function removeOne(key){
             localStorage.setItem(i + 1, newTab[i]);
         }
         console.log(newTab);
+        localStorage.setItem("stockTaken",JSON.stringify(toSave));
         nbObject--;
         localStorage.setItem("nbObject", nbObject);//Reload the value in the storage
         location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add

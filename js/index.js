@@ -1,7 +1,3 @@
-//There 2 elements with that class Name, one for the search bar and an other for the main part, we just hide the one for the search bar in a first place
-//And display it when its necessary
-let courseContainer = document.getElementById("courses_list");
-
 //Display of the different Courses that the site put in selling
 let textb = "";
 for (let i=0; i< COURSES.length; i++){
@@ -22,20 +18,15 @@ for (let i=0; i< COURSES.length; i++){
       <p>`;
 
     if (COURSES[i].stock - stockTaken[i] == 0){
-      textb = textb + '<span class="stock"> Out of Stock !</span> </p>';
+      textb = textb + '<span class="stock"> Out of Stock !</span> </p> </div></div>';
     }else{
       textb = textb + `Disponible: <span class="stock">${COURSES[i].stock - stockTaken[i]}</span> </p>
-      <a onclick= addcart(${COURSES[i].id}) class="add-to-cart" data-id="5"><i class="fa fa-cart-plus"></i>Ajouter au panier</a>`;
+      <a onclick= addcart(${COURSES[i].id}) class="add-to-cart" data-id="5"><i class="fa fa-cart-plus"></i>Ajouter au panier</a> </div></div>`;
     }
-
-    textb = textb+ `
-    </div>
-    </div>`;
 }
 
 //Display of the article in our cart
 let textC = '<tr>';
-let content = document.getElementById("contentCart");
 let price = 0;
 
 for (let i=1; i<= nbObject; i++){
@@ -47,6 +38,6 @@ for (let i=1; i<= nbObject; i++){
 }
 
 textC = textC + `<th></th> <th>Total </th> <th> ${price} €</th>`;
-content.innerHTML = textC ;
+$('#contentCart').html(textC);
 
-courseContainer.innerHTML = textb;
+$('#courses_list').html(textb);
