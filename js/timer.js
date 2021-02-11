@@ -2,6 +2,10 @@ const FULL_DASH_ARRAY = 283;
 const WARNING_THRESHOLD = 180;
 const ALERT_THRESHOLD = 90;
 
+if (localStorage.getItem("istimeractive" )== null) {
+    localStorage.setItem("istimeractive", false);
+}
+
 const COLOR_CODES = {
   info: {
     color: "green" 
@@ -16,7 +20,7 @@ const COLOR_CODES = {
   }
 };
 //Start with an initial value of 20 seconds
-const TIME_LIMIT = 0;
+const TIME_LIMIT = 10;
 
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
@@ -55,6 +59,8 @@ function onTimesUp() {
 }
 
 function startTimer() {
+    istimeractive = true;
+    localStorage.setItem("istimeractive", true);
   timerInterval = setInterval(() => {
 
     // The amount of time passed increments by one
@@ -69,6 +75,7 @@ function startTimer() {
     setRemainingPathColor(timeLeft);
 
     if (timeLeft === 0) {
+    localStorage.setItem("istimeractive", false);
       onTimesUp();
       location.reload();
     }
@@ -124,3 +131,4 @@ function setCircleDasharray() {
     .getElementById("base-timer-path-remaining")
     .setAttribute("stroke-dasharray", circleDasharray);
 }
+
