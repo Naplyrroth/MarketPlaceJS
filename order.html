@@ -31,21 +31,26 @@
                 Cart Number : 
 
                 <input type="number" maxlength="4" id="code1" name="code1" size="4" onKeyDown="suivant(code1,'code2', 4)"
-                    class="validity" placeholder="4 Chiffre Uniquement">
+                     placeholder="4 Chiffre Uniquement" required>
                 - <input type="number" maxlength="4" id="code2" name="code2" size="4" onKeyDown="suivant(code2,'code3', 4)"
-                    placeholder="4 Chiffre Uniquement">
+                    placeholder="4 Chiffre Uniquement" required>
                 - <input type="number" maxlength="4" id="code3" name="code3" size="4" onKeyDown="suivant(code3,'code4', 4)"
-                    placeholder="4 Chiffre Uniquement">
+                    placeholder="4 Chiffre Uniquement" required>
                 - <input type="number" maxlength="4" id="code4" name="code4" size="4" onKeyDown="suivant(code4,'code5', 4)"
-                    placeholder="4 Chiffre Uniquement"> </br>
+                    placeholder="4 Chiffre Uniquement" required> </br>
 
                 Cryptogramme :
                 <input type="number" id="name" name="code5" min="3" max="3" size="3"
-                    tabulation="suivant(this,'empty-cart', 3)" placeholder="3 Chiffre Uniquement"> </br>
+                    placeholder="3 Chiffre Uniquement"> </br>
+
+                    <input onclick="redirection()" id="empty-cart" href="index.html"
+                    class="button u-full-width" type="Submit" ></input> </br>
+                    
             </form>
 
-            <a onclick="redirection()" id="empty-cart" href="index.html"
-                class="button u-full-width">Validation</a> </br>
+            
+
+
             <a href="index.html" class="button u-full-width">Back To Market</a> </br>
 
         </div>
