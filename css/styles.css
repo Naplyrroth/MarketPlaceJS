@@ -280,7 +280,8 @@ footer {
 }
 
 .bt-supprimer{
-  background-color:rgb(138, 122, 125);
+  /*background-color:rgb(138, 122, 125);*/
+  color: #8d0d0d;
   padding:2px;
   text-align:center;
   vertical-align:middle;
@@ -292,12 +293,10 @@ footer {
 }
 
 .bt-supprimer:hover {
-  color: #ffffff;
-  background-color: #305081;
-  text-shadow: #fff 0px 0px 5px, #fff 0px 0px 10px, #fff 0px 0px 15px,
-    #3b2dff 0px 0px 20px, #3b2dff 0px 0px 30px, #3b2dff 0px 0px 40px,
-    #3b2dff 0px 0px 50px, #3b2dff 0px 0px 75px;
-
+  color: #ececec;
+  background-color: #00000036;
+  text-shadow: 0 0 5px rgba(0, 0, 0);
+  /*box-shadow: 0 0 8px #FF0000;*/
 }
 
 .base-timer {

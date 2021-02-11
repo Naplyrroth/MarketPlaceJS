@@ -1,4 +1,5 @@
 //Display of the different Courses that the site put in selling
+let reduc = 1;
 let textb = "";
 for (let i=0; i< COURSES.length; i++){
     textb = textb + `
@@ -13,7 +14,7 @@ for (let i=0; i< COURSES.length; i++){
       </figure>
       <p>
         <span class="price">${COURSES[i].initial_price} €</span>
-        <span class="discount">${COURSES[i].price} €</span>
+        <span class="discount">${COURSES[i].price * reduc} €</span>
       </p>
       <p>`;
 
@@ -32,7 +33,7 @@ let price = 0;
 for (let i=1; i<= nbObject; i++){
     let courseCart = JSON.parse(localStorage.getItem(`${i}`))
     //Display like a table in the cart:         The Title                      The price                   The quantity
-    let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.price}   </th>  <th>  ${1}  </th>  <th><a onclick = "removeOne(${i})" id="btsup" class="bt-supprimer">Supprimer</a></th>`
+    let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.price}   </th>  <th>  ${1}  </th>  <th><a onclick = "removeOne(${i})" id="btsup" class="bt-supprimer">-x-</a></th>`
     textC = textC +' '+ courseCartTable + '</tr>';
     price += courseCart.price*1;
 }
