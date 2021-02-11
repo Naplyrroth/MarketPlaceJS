@@ -11,17 +11,18 @@ for (let i=0; i< COURSES.length; i++){
       <h4>${COURSES[i].title}</h4>
       <figure class="mark m_${COURSES[i].mark}">
         <img src="img/rates.png">
-      </figure>
-      <p>
-        <span class="price">${COURSES[i].initial_price} €</span>
-        <span class="discount">${COURSES[i].price * reduc} €</span>
-      </p>
-      <p>`;
-
+      </figure>`;
+      if (timeLeft == 0) {
+        textb = textb + `<p> <span class="discount">${COURSES[i].initial_price} €</span> </p>`
+        }
+         else{
+            textb = textb +`<p> <span class="price">${COURSES[i].initial_price} €</span>
+             <span class="discount">${COURSES[i].price * reduc} €</span> </p>`
+        }
     if (COURSES[i].stock - stockTaken[i] == 0){
-      textb = textb + '<span class="stock"> Out of Stock !</span> </p> </div></div>';
+      textb = textb + '<p> <span class="stock"> Out of Stock !</span> </p> </div></div>';
     }else{
-      textb = textb + `Disponible: <span class="stock">${COURSES[i].stock - stockTaken[i]}</span> </p>
+      textb = textb + `<p> Disponible: <span class="stock">${COURSES[i].stock - stockTaken[i]}</span> </p>
       <a onclick= addcart(${COURSES[i].id}) class="add-to-cart" data-id="5"><i class="fa fa-cart-plus"></i>Ajouter au panier</a> </div></div>`;
     }
 }
@@ -33,9 +34,9 @@ let price = 0;
 for (let i=1; i<= nbObject; i++){
     let courseCart = JSON.parse(localStorage.getItem(`${i}`))
     //Display like a table in the cart:         The Title                      The price                   The quantity
-    let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.price}   </th>  <th>  ${1}  </th>  <th><a onclick = "removeOne(${i})" id="btsup" class="bt-supprimer">-x-</a></th>`
+    let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.initial_price}   </th>  <th>  ${1}  </th>  <th><a onclick = "removeOne(${i})" id="btsup" class="bt-supprimer">-x-</a></th>`
     textC = textC +' '+ courseCartTable + '</tr>';
-    price += courseCart.price*1;
+    price += courseCart.initial_price*1;
 }
 
 textC = textC + `<th></th> <th>Total </th> <th> ${price} €</th>`;

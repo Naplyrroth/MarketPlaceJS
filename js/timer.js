@@ -16,7 +16,7 @@ const COLOR_CODES = {
   }
 };
 //Start with an initial value of 20 seconds
-const TIME_LIMIT = 300;
+const TIME_LIMIT = 0;
 
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
@@ -50,8 +50,6 @@ document.getElementById("app").innerHTML = `
 </div>
 `;
 
-startTimer();
-
 function onTimesUp() {
   clearInterval(timerInterval);
 }
@@ -72,6 +70,7 @@ function startTimer() {
 
     if (timeLeft === 0) {
       onTimesUp();
+      location.reload();
     }
   }, 1000);
 }
