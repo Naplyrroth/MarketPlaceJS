@@ -4,15 +4,19 @@ function suivant(enCours, suivant, limite) {
     }
 }
 
-function redirection(){
+    function redirection(){
     $(document).ready(function(){
-        $("#div1").fadeOut();$("#div2").fadeOut();});
+        $("#div2").atclass("hidden");
+
+    $(document).ready(function(){
+        $("#div1").fadeOut();
+        $("#div2").fadeIn();});
         
             
-    window.alert("Thanks For Your Order");
     if (price >= 100){
         console.log("start the timer")
         localStorage.setItem("istimeractive", true);
     }
     removeall('stockTaken');
 }
+    )}
