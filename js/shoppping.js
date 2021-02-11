@@ -52,10 +52,9 @@ function removeOne(key){
     if ( confirm( "Are you sure to delete ?") ) 
     {
         //Save the current stock
-        let toSave = JSON.parse(localStorage.getItem('stockTaken'));
         let key_value = JSON.parse(localStorage.getItem(key));
         remove(key);
-        toSave[key_value.id-1] = toSave[key_value.id-1] - 1;
+        stockTaken[key_value.id-1] = stockTaken[key_value.id-1] - 1;
          
         let newTab = []
         for (i = 1; i <= nbObject; i++) {
@@ -71,7 +70,7 @@ function removeOne(key){
             localStorage.setItem(i + 1, newTab[i]);
         }
         console.log(newTab);
-        localStorage.setItem("stockTaken",JSON.stringify(toSave));
+        localStorage.setItem("stockTaken",JSON.stringify(stockTaken));
         nbObject--;
         localStorage.setItem("nbObject", nbObject);//Reload the value in the storage
         location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add
@@ -85,17 +84,15 @@ function remove(key){ // delete button function
 function removeall(key=null){
     // empty cart function
     if (key == "unfill"){
-        //It's to clear the cart. We need to save the stock that the user took
-        let toSave = JSON.parse(localStorage.getItem('stockTaken'));
         for (let i=1; i<=nbObject; i++){
             //We suppress all the product and -1 the right value in the Array Stock
             let i_value = JSON.parse(localStorage.getItem(i));
             remove(i);
-            toSave[i_value.id-1] = toSave[i_value.id-1] - 1;
+            stockTaken[i_value.id-1] = stockTaken[i_value.id-1] - 1;
             console.log(i_value.id);
         }
         //After, we update the array
-        localStorage.setItem("stockTaken",JSON.stringify(toSave));
+        localStorage.setItem("stockTaken",JSON.stringify(stockTaken));
         //And reset the nbObject in our cart
         remove("nbObject");        
 
@@ -103,10 +100,7 @@ function removeall(key=null){
     else{
         //If we clear an order
         for (let i=1; i <= nbObject;i++){
-            let append = localStorage.getItem(i);
-            if (append != null){
-                remove(i);
-            }
+            remove(i);
         }
         remove("nbObject");
     }    
