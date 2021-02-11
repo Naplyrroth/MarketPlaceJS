@@ -19,7 +19,7 @@ function addcart (idCourse){
         if(JSON.parse(localStorage.getItem(`${i}`)).id == COURSES[idCourse-1].id){
             deny = true; //If there is already the same product in the carte, deny the new one.
             console.log("Already in your cart");
-            confirm( "Already in your cart"); //display a message
+            alert( "Already in your cart"); //display a message
             break;
         }
     }
