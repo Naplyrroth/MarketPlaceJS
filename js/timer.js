@@ -19,8 +19,8 @@ const COLOR_CODES = {
     threshold: ALERT_THRESHOLD
   }
 };
-//Start with an initial value of 20 seconds
-const TIME_LIMIT = 10;
+//Start with an initial value of 5 min
+const TIME_LIMIT = 300;
 
 // Initially, no time has passed, but this will count up
 // and subtract from the TIME_LIMIT
