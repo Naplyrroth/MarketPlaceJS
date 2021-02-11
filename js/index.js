@@ -12,7 +12,7 @@ for (let i=0; i< COURSES.length; i++){
       <figure class="mark m_${COURSES[i].mark}">
         <img src="img/rates.png">
       </figure>`;
-      if (timeLeft == 0) {
+      if (localStorage.getItem("istimeractive") == 'false') {
         textb = textb + `<p> <span class="discount">${COURSES[i].initial_price} €</span> </p>`
         }
          else{
@@ -35,11 +35,11 @@ for (let i=1; i<= nbObject; i++){
     let courseCart = JSON.parse(localStorage.getItem(`${i}`))
     //Display like a table in the cart:         The Title                      The price                   The quantity
     let courseCartTable = `<th></th> <th>  ${courseCart.title}  </th>  <th> ${courseCart.initial_price}   </th>  <th>  ${1}  </th>  <th><a onclick = "removeOne(${i})" id="btsup" class="bt-supprimer">-x-</a></th>`
-    textC = textC +' '+ courseCartTable + '</tr>';
+    textC = textC +' '+ courseCartTable + '</tr> <tr>';
     price += courseCart.initial_price*1;
 }
 
 textC = textC + `<th></th> <th>Total </th> <th> ${price} €</th>`;
-
+console.log(localStorage.getItem("istimeractive"));
 $('#contentCart').html(textC);
 $('#courses_list').html(textb);

@@ -44,7 +44,7 @@
                     tabulation="suivant(this,'empty-cart', 3)" placeholder="3 Chiffre Uniquement"> </br>
             </form>
 
-            <a onclick="redirection();removeall('stockTaken')" id="empty-cart" href="index.html"
+            <a onclick="redirection()" id="empty-cart" href="index.html"
                 class="button u-full-width">Validation</a> </br>
             <a href="index.html" class="button u-full-width">Back To Market</a> </br>
 
@@ -54,19 +54,8 @@
         <script src="js/shoppping.js"></script>
         <script src="js/timer.js"></script>
         <script src="js/index.js"></script>
-        <script>
-            function suivant(enCours, suivant, limite) {
-                if (enCours.value.length >= limite){
-                    document.code[suivant].focus();
-                }
-            }
-            function redirection(){
-                window.alert("Thanks For Your Order");
-                if (price >= 100){
-                    startTimer()
-                }
-            }
-        </script>
+
+        <script src="js/order.js"></script>
     </body>
 
 </html>

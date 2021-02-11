@@ -84,18 +84,8 @@ function remove(key){ // delete button function
 }
 function removeall(key=null){
     // empty cart function
-    if (key != null){
-        
-        //if we want to save a particular value in the storage
-        let toSave = JSON.parse(localStorage.getItem(key));
-        console.log(key);
-        console.log(toSave);
-        localStorage.clear() // empties all stored keys
-        localStorage.setItem(key,JSON.stringify(toSave));
-    }
-    else{
-
-        //if we won't then, it's to clear the all cart. We need to save the stock that the user took
+    if (key == "unfill"){
+        //It's to clear the cart. We need to save the stock that the user took
         let toSave = JSON.parse(localStorage.getItem('stockTaken'));
         for (let i=1; i<=nbObject; i++){
             //We suppress all the product and -1 the right value in the Array Stock
@@ -107,6 +97,17 @@ function removeall(key=null){
         //After, we update the array
         localStorage.setItem("stockTaken",JSON.stringify(toSave));
         //And reset the nbObject in our cart
+        remove("nbObject");        
+
+    }
+    else{
+        //If we clear an order
+        for (let i=1; i <= nbObject;i++){
+            let append = localStorage.getItem(i);
+            if (append != null){
+                remove(i);
+            }
+        }
         remove("nbObject");
     }    
     location.reload(); // Used to refresh the page, else the cart will not apply the current product that we add

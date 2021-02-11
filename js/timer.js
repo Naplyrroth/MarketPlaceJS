@@ -30,7 +30,7 @@ let timeLeft = TIME_LIMIT;
 let timerInterval = null;
 let remainingPathColor = COLOR_CODES.info.color;
 
-document.getElementById("app").innerHTML = `
+$("#app").html(`
 <div class="base-timer">
   <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
     <g class="base-timer__circle">
@@ -52,17 +52,18 @@ document.getElementById("app").innerHTML = `
     timeLeft
   )}</span>
 </div>
-`;
+`);
 
 function onTimesUp() {
   clearInterval(timerInterval);
 }
 
-function startTimer() {
-    istimeractive = true;
-    localStorage.setItem("istimeractive", true);
-  timerInterval = setInterval(() => {
+if (localStorage.getItem("istimeractive") == 'true'){
+  startTimer()
+}
 
+function startTimer() {
+  timerInterval = setInterval(() => {
     // The amount of time passed increments by one
     timePassed = timePassed += 1;
     timeLeft = TIME_LIMIT - timePassed;
@@ -75,7 +76,7 @@ function startTimer() {
     setRemainingPathColor(timeLeft);
 
     if (timeLeft === 0) {
-    localStorage.setItem("istimeractive", false);
+      localStorage.setItem("istimeractive", false);
       onTimesUp();
       location.reload();
     }
